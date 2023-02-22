@@ -1,0 +1,137 @@
+/* font-family: 'Bree Serif';font-size: 22px; */
+
+
+.main_class{
+    height:100vh;
+    width:100vw;
+    background-color: #fff;
+}.class_header,.middle_layer,.first_row,.second_row{
+    display:flex;
+    flex-direction:row;
+}.class_body,.complete_cards{
+    display:flex;
+    flex-direction:column;
+}.sanofi_logo_class{
+    height:64px;
+    width:120px;
+    margin-left:3%;
+    cursor:pointer;
+}.version_class{
+    line-height:1.4;
+    font-family:'Lobster';
+    margin-left:-39px;
+    margin-top:-19px;
+    font-size:10px;
+    color:#671079
+}.sanofi_name{
+    font-family:"Bree Serif";
+    cursor:pointer;
+    font-size: 32px;
+    border-radius:12px;
+    margin-left:12%;
+    background:linear-gradient(to right,#fbf5f5,#fff4f4);
+    margin-top:13px;
+}.sehat_logo_class{
+    height:96px;
+    width:105px;
+    margin-left:9%;
+    cursor:pointer;   
+}.piramal_logo_class{
+    height:63px;
+    width:120px;
+    margin-left:5%;
+    cursor:pointer;
+}.refresh_logo_class{
+    height:49px;
+    width:39px;
+    cursor:pointer;
+}.class_body{
+    height:450px;
+    width:1150px;
+    margin-left:4.5%;
+    margin-top:10px;
+    background: #e9ecef;
+    /* justify-content: center;
+    align-items:center; */
+    border:1px double rgb(176, 178, 245);
+}.class_header{
+    justify-content: center;
+    align-items:center;
+}.error_bar{
+    width: 66%;
+    height: 46px;
+    /* border: 2px solid black; */
+}.error_bar_class{
+    padding:10px 20px;
+    font-family:'Lobster';
+}.first_row,.second_row{
+    justify-content: center;
+    align-items: center;
+}
+.first_card,.second_card,.third_card,.fourth_card,.fifth_card,.sixth_card,.seventh_card,.eigth_card{
+    height:125px;
+    width:270px;
+    border:2px solid #010722;
+    border-radius:8px;
+    margin-left:0.5%;
+    margin-top:6px;
+}.first_card_upper_part_name,.second_card_upper_part_name,.third_card_upper_part_name,.fourth_card_upper_part_name,.fifth_card_upper_part_name,.sixth_card_upper_part_name,.seventh_card_upper_part_name,.eight_card_upper_part_name{
+    /* border-bottom:2px solid #031b89; */
+    font-family:'Bree Serif';
+    margin-bottom:2px;
+}.first_card_upper_part,.second_card_upper_part,.third_card_upper_part,.fourth_card_upper_part,.fifth_card_upper_part,.sixth_card_upper_part,.seventh_card_upper_part,.eight_card_upper_part{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #010722;
+}.first_card_lower_part,.second_card_lower_part,.third_card_lower_part,.fourth_card_lower_part,.fifth_card_lower_part,.sixth_card_lower_part,.seventh_card_lower_part,.eight_card_lower_part{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+.first_card_lower_one,.first_card_lower_two,.second_card_lower_one,.second_card_lower_two,.third_card_lower_one,.third_card_lower_two,.fourth_card_lower_one,.fourth_card_lower_two,.fifth_card_lower_one,.sixth_card_lower_one,.sixth_card_lower_two,.sixth_card_lower_three,.seventh_card_lower_one,.seventh_card_lower_two,.eight_card_lower_one,.eight_card_lower_two{
+    display:flex;
+    flex-direction:row;
+}.first_card_lower_one_count,.first_card_lower_two_count,.second_card_lower_one_count,.second_card_lower_two_count,.third_card_lower_one_count,.third_card_lower_two_count,.fourth_card_lower_one_count,.fourth_card_lower_two_count,.fifth_card_lower_one_count,.sixth_card_lower_one_count,.sixth_card_lower_two_count,.sixth_card_lower_three_count,.seventh_card_lower_one_count,.seventh_card_lower_two_count,.eight_card_lower_one_count,.eight_card_lower_two_count{
+    font-family:'Bree Serif';
+    margin-bottom:0px;
+}.right_arrow_image_class{
+    height:200px;
+    width:100px;
+}.right_arrow_new_class{
+    height:25px;
+    width:25px;
+    /* margin-left:5vw; */
+}#my_date_picker_range_home{
+    margin-left:2.6%;
+}.right_arrow_new_class:hover{
+    color: darkcyan;
+    text-shadow: 2px, 2px, 5px fuchsia;
+}#right_new_id:hover{
+    color: darkcyan;
+    text-shadow: 2px, 2px, 5px fuchsia;
+}.fifth_card_additional_text{
+    font-family:'Bree Serif';
+    font-size:15px;
+}.sixth_card_lower_two,.sixth_card_lower_three{
+    margin-top:-15px;
+}#first_card_lower_one_value,#first_card_lower_two_value,#second_card_lower_one_value,#second_card_lower_two_value,#third_card_lower_one_value,#third_card_lower_two_value,#fourth_card_lower_one_value,#fourth_card_lower_two_value,#fifth_card_lower_one_value,#sixth_card_lower_one_value,#sixth_card_lower_two_value,#sixth_card_lower_three_value,#seventh_card_lower_one_value,#seventh_card_lower_two_value,#eight_card_lower_one_value,#eight_card_lower_two_value{
+    font-family:'Bree Serif';
+    font-size: 17px;
+    margin-top:-1px;
+}.down_name{
+    font-family:'Bree Serif';
+    font-size: 13px;
+    margin-left:70vw;
+    margin-top:16.5vh;
+}
+p{
+    margin-bottom:0px;
+}.second_card_lower_part,.third_card_lower_part,.fourth_card_lower_part,.fifth_card_lower_part,.seventh_card_lower_part,.eight_card_lower_part{
+    margin-top:20px;
+}.sixth_card_lower_one,.sixth_card_lower_two{
+    margin-bottom:15px;
+}.sixth_card_lower_part{
+    margin-top:6px;
+}
