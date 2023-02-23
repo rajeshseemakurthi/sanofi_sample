@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APL Dashboard</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link href="{{url_for('static',filename='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Alatsi' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Arbutus Slab' rel='stylesheet'>
+  <!--<link href="{{url_for('static',filename='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{url_for('static',filename='plugins/fontawesome-free/css/all.min.css')}}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="{{url_for('static',filename='plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{{url_for('static',filename='plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="{{url_for('static',filename='plugins/jqvmap/jqvmap.min.css')}}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{url_for('static',filename='css/adminlte.min.css')}}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{{url_for('static',filename='plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{{url_for('static',filename='plugins/daterangepicker/daterangepicker.css')}}">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{{url_for('static',filename='plugins/summernote/summernote-bs4.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/custom_styles.css')}}">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+  <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css' rel='stylesheet'>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .topnav {
+      position: relative;
+      overflow: hidden;
+      
+    }
+    
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    
+    .topnav a.active {
+      font-family:'Alatsi';
+      font-size:25px;
+      color: red;
+    }
+    
+    .topnav-centered a {
+      float: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .topnav-right {
+      float: right;
+    }
+    
+    /* Responsive navigation menu (for mobile devices) */
+    @media screen and (max-width: 600px) {
+      .topnav a, .topnav-right {
+        float: none;
+        display: block;
+      }
+      
+      .topnav-centered a {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+      }
+    }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="">
+  <!-- Top navigation -->
+<div class="topnav mb-n5">
+
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="/" class="active mt-n4">Asian Paints Limited - NIROG Project</a>
+  </div>
+
+  <!-- Left-aligned links (default) -->
+  <a href="/" class="mt-2"><img class="asian_paints img-fluid" src="{{url_for('static',filename='img/asian_paints_removebg.png')}}" alt="asian_paints_logo"></a>
+  <!--<a href="#contact">Contact</a>-->
+
+  <!-- Right-aligned links -->
+  <!--<div class="topnav-right">
+    <a href="#search">Search</a>
+    <a href="#about">About</a>
+  </div>-->
+</div>
+
+  <!-- /.navbar -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper main_div_rajesh">
+        <!--Middle Bar-->
+        <div class="row mb-2">
+          <div class='col-xl-1 col-lg-1'></div>
+          <div class='col-xl-2 col-lg-2 col-md-4 col-sm-4'>
+              <input type="text" name="From" id="From" value="27-06-2019" min="27-06-2019" onInput="myOutput1()" class="from_date form-control float-end" placeholder="From Date"/>
+          </div>
+          <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
+              <input type="text" name="to" id="to" value="" min="27-06-2019" class="form-control to_date" placeholder="To Date"/>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+              <input type="button" name="range" id="range" value="Submit" class="btn btn-primary btn-sm active logout_button"/>
+          </div>
+          <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4">
+              <a href="/"><img class="refresh_image img-fluid" src="{{url_for('static',filename='img/refresh_green_removebg.png')}}" alt="refresh_green_removebg"></a>
+          </div>
+      </div>
+  
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <a href="#" class="small-box-footer">Clinics Conducted <i class="fas fa-arrow-circle-right"></i></a>
+              <div class="inner">
+                <div class='row'>
+                  <div class="col">Total Count</div>
+                  <div class="col"></div>  
+                </div>
+                <div class='row'>
+                  <div class="col">Yesterday</div>
+                  <div class="col"></div>  
+                </div>
+                <div class='row'>
+                  <div class="col">Today</div>
+                  <div class="col"></div>  
+                </div>
+                <!--<p class="first_one_cum_class">Total Count: <span class="" id="first_one_cum_value"></span></p>
+                <p class="first_two_yes_class">Yesterday: <span class="" id="first_two_yes_value"></span></p>
+                <p class="first_three_today_class">Today: <span class="" id="first_three_today_value"></span></p>-->
+              </div>
+              <div class="icon">
+                <!--<i class="ion ion-bag"></i>-->
+                <i class="ion-ios-world-outline"></i>
+              </div>
+              <!--<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>-->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <a href="#" class="small-box-footer">MMU Operation Days <i class="fas fa-arrow-circle-right"></i></a>
+              <div class="inner">
+                <p class="second_one_cum_class">Total Count: <span class="" id="second_one_cum_value"></span></p>
+                <p class="second_two_yes_class">Yesterday: <span class="" id="second_two_yes_value"></span></p>
+                <p class="second_three_today_class">Today: <span class="" id="second_three_today_value"></span></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <!--<a href="#" class="small-box-footer">MMU Operation Days <i class="fas fa-arrow-circle-right"></i></a>-->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <a href="#" class="small-box-footer">Total Beneficiary visits <i class="fas fa-arrow-circle-right"></i></a>
+              <div class="inner">
+                <p class="third_one_cum_class">Total Count: <span class="" id="third_one_cum_value"></span></p>
+                <p class="third_two_yes_class">Yesterday: <span class="" id="third_two_yes_value"></span></p>
+                <p class="third_three_today_class">Today: <span class="" id="third_three_today_value"></span></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!--<a href="#" class="small-box-footer">Total Beneficiary visits <i class="fas fa-arrow-circle-right"></i></a>-->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <a href="#" class="small-box-footer">Unique Registrations <i class="fas fa-arrow-circle-right"></i></a>
+              <div class="inner">
+                <p class="fourth_one_cum_class">Total Count: <span class="" id="fourth_one_cum_value"></span></p>
+                <p class="fourth_two_yes_class">Yesterday: <span class="" id="fourth_two_yes_value"></span></p>
+                <p class="fourth_three_today_class">Today: <span class="" id="fourth_three_today_value"></span></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <!--<a href="#" class="small-box-footer">Unique Registrations <i class="fas fa-arrow-circle-right"></i></a>-->
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <a href="#" class="small-box-footer">Revisits <i class="fas fa-arrow-circle-right"></i></a>
+              <div class="inner">
+                <p class="fifth_one_cum_class">Total Count: <span class="" id="fourth_one_cum_value"></span></p>
+                <p class="fifth_two_yes_class">Yesterday: <span class="" id="fourth_two_yes_value"></span></p>
+                <p class="fifth_three_today_class">Today: <span class="" id="fourth_three_today_value"></span></p>
+              </div>
+              <div class="icon">
+                <i class="ion-ios-pulse-strong"></i>
+              </div>
+              <!--<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>-->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <a href="#" class="small-box-footer">Non Communicable Diseases <i class="fas fa-arrow-circle-right"></i></a>
+              <div class="inner">
+                <p class="fifth_one_cum_class">Total Count: <span class="" id="fourth_one_cum_value"></span></p>
+                <p class="fifth_two_yes_class">Yesterday: <span class="" id="fourth_two_yes_value"></span></p>
+                <p class="fifth_three_today_class">Today: <span class="" id="fourth_three_today_value"></span></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <!--<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>-->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <a href="#" class="small-box-footer">Communicable Diseases <i class="fas fa-arrow-circle-right"></i></a>
+              <div class="inner">
+                <p class="fifth_one_cum_class">Total Count: <span class="" id="fourth_one_cum_value"></span></p>
+                <p class="fifth_two_yes_class">Yesterday: <span class="" id="fourth_two_yes_value"></span></p>
+                <p class="fifth_three_today_class">Today: <span class="" id="fourth_three_today_value"></span></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!--<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>-->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <a href="#" class="small-box-footer">Reproductive and Child Health <i class="fas fa-arrow-circle-right"></i></a>
+              <div class="inner">
+                <p class="fifth_one_cum_class">Total Count: <span class="" id="fourth_one_cum_value"></span></p>
+                <p class="fifth_two_yes_class">Yesterday: <span class="" id="fourth_two_yes_value"></span></p>
+                <p class="fifth_three_today_class">Today: <span class="" id="fourth_three_today_value"></span></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <!--<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>-->
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <a href="#" class="small-box-footer">Minor Elements <i class="fas fa-arrow-circle-right"></i></a>
+              <div class="inner">
+                <p class="fifth_one_cum_class">Total Count: <span class="" id="fourth_one_cum_value"></span></p>
+                <p class="fifth_two_yes_class">Yesterday: <span class="" id="fourth_two_yes_value"></span></p>
+                <p class="fifth_three_today_class">Today: <span class="" id="fourth_three_today_value"></span></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <!--<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>-->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <a href="#" class="small-box-footer">NCD Breakup <i class="fas fa-arrow-circle-right"></i></a>
+              <div class="inner">
+                <div class="row">
+                </div
+                <p class="fifth_one_cum_class">HyperTensionmain working inhfytfzdf: <span class="" id="fourth_one_cum_value"></span></p>
+                <p class="fifth_two_yes_class">Diabetes : <span class="" id="fourth_two_yes_value"></span></p>
+                <p class="fifth_two_yes_class">Cancer : <span class="" id="fourth_two_yes_value"></span></p>
+                <p class="fifth_three_today_class">Htn & DB : <span class="" id="fourth_three_today_value"></span></p>
+                <p class="fifth_three_today_class">COPD : <span class="" id="fourth_three_today_value"></span></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <!--<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>-->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <a href="#" class="small-box-footer">Medicated Patients <i class="fas fa-arrow-circle-right"></i></a>
+              <div class="inner">
+                <p class="fifth_one_cum_class">Total Count: <span class="" id="fourth_one_cum_value"></span></p>
+                <p class="fifth_two_yes_class">Yesterday: <span class="" id="fourth_two_yes_value"></span></p>
+                <p class="fifth_three_today_class">Today: <span class="" id="fourth_three_today_value"></span></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <!--<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>-->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <a href="#" class="small-box-footer">Tests Conducted <i class="fas fa-arrow-circle-right"></i></a>
+              <div class="inner">
+                <p class="fifth_one_cum_class">Total Count: <span class="" id="fourth_one_cum_value"></span></p>
+                <p class="fifth_two_yes_class">Yesterday: <span class="" id="fourth_two_yes_value"></span></p>
+                <p class="fifth_three_today_class">Today: <span class="" id="fourth_three_today_value"></span></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <!--<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>-->
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <div class="row">
+          <div class="col-lg-5 col-6 gender_class">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <a href="#" class="small-box-footer">Gender</a>
+              <div class="inner">
+                <p class="fifth_one_cum_class">Male: <span class="" id="fourth_one_cum_value"></span></p>
+                <p class="fifth_two_yes_class">Female: <span class="" id="fourth_two_yes_value"></span></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <!--<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>-->
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-5 col-6 age_class">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <a href="#" class="small-box-footer">Age</a>
+              <div class="inner">
+                <p class="fifth_three_today_class">Count : <span class="" id="fourth_three_today_value"></span></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <!--<a href="#" class="small-box-footer">Age<i class="fas fa-arrow-circle-right"></i></a>-->
+            </div>
+          </div>
+          <!-- ./col -->
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <a href="#" class="small-box-footer">Referrals <i class="fas fa-arrow-circle-right"></i></a>
+              <div class="inner">
+                <p class="fifth_one_cum_class">Total Count: <span class="" id="fourth_one_cum_value"></span></p>
+                <p class="fifth_two_yes_class">Yesterday: <span class="" id="fourth_two_yes_value"></span></p>
+                <p class="fifth_three_today_class">Today: <span class="" id="fourth_three_today_value"></span></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <!--<a href="#" class="small-box-footer">Referrals <i class="fas fa-arrow-circle-right"></i></a>-->
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <!-- /.row -->
+        
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; Powered by <a href="https://www.piramalswasthya.org/">PiramalSwasthya</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 0.1.0
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+<!-- jQuery -->
+<script src="{{url_for('static',filename='plugins/jquery/jquery.min.js')}}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{url_for('static',filename='plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<!--<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>-->
+<!-- Bootstrap 4 -->
+<script src="{{url_for('static',filename='plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- ChartJS -->
+<script src="{{url_for('static',filename='plugins/chart.js/Chart.min.js')}}"></script>
+<!-- Sparkline -->
+<script src="{{url_for('static',filename='plugins/sparklines/sparkline.js')}}"></script>
+<!-- JQVMap -->
+<script src="{{url_for('static',filename='plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+<script src="{{url_for('static',filename='plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{{url_for('static',filename='plugins/jquery-knob/jquery.knob.min.js')}}"></script>
+<!-- daterangepicker -->
+<script src="{{url_for('static',filename='plugins/moment/moment.min.js')}}"></script>
+<script src="{{url_for('static',filename='plugins/daterangepicker/daterangepicker.js')}}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{{url_for('static',filename='plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+<!-- Summernote -->
+<script src="{{url_for('static',filename='plugins/summernote/summernote-bs4.min.js')}}"></script>
+<!-- overlayScrollbars -->
+<script src="{{url_for('static',filename='plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{url_for('static',filename='js/adminlte.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{url_for('static',filename='js/demo.js')}}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{url_for('static',filename='js/pages/dashboard.js')}}"></script>
+<script>
+  $(document).ready(function() {
+      var date2=new Date();
+      var year1="2019";
+      var month1="07";
+      var date1_display="31";
+
+      var year2=date2.getFullYear();
+      var month2=String(date2.getMonth()+1).padStart(2,'0');
+      var date2_display=String(date2.getDate()).padStart(2,'0');
+      var datePattern1=year1+'-'+month1+'-'+date1_display;
+      //var datePattern2=year2+'-'+month2+'-'+date2_display;
+      var datePattern2=date2_display+'-'+month2+'-'+year2;
+      //document.getElementById("my_date_picker1").value=datePattern1;
+      document.getElementById("to").value=datePattern2;
+      document.getElementById("From").max=datePattern2;
+      document.getElementById("to").max=datePattern2;
+      //Setting Interval for Live data Update & display
+      setInterval(function(){
+          $.ajax({
+              url:"/update",
+              method:"GET",
+              data:{From:From,to:to},
+              context:document.body,
+              success:function(date){
+                console.log("Data Testing Main: ",data)
+              }});
+          console.log("Both Parquet Files been Updated..!");                      
+      },120000)  //here 300,000 means 1000*60*2minutes or 1000*60*15=900000
+      $.datepicker.setDefaults({dateFormat:'dd-mm-yy'});
+      $(function(){
+          $("#From").datepicker();
+          $("#to").datepicker();
+      });
+      $('#range').click(function(){
+          var From=$('#From').val();
+          var to=$('#to').val();
+          if (From!='' && to!='')
+          {
+              $.ajax({
+                  url:"/",
+                  method:"POST",
+                  data:{From:From,to:to},
+                  success:function(data)
+                  {
+                      console.log("Data: ",data);
+                      console.log("Data1: ",data[0]);
+                      console.log("Data2: ",data[1]);
+                      console.log("Data3: ",data[2]);
+                      console.log("Data4: ",data[3]);
+                      console.log("Data5: ",data[4]);
+                      console.log("Data6: ",data[5]);
+                      $('#first_card_first_lower_value').html(data[0]);
+                      $('#second_card_first_lower_value').html(data[1]);
+                      $('#third_card_first_lower_value').html(data[2]);
+                      $('#fourth_card_first_lower_value').html(data[3]);
+                      $('#fifth_card_first_lower_value').html(data[4]);
+                      $('#fifth_card_second_lower_value').html(data[5]);
+                      $('#fifth_card_third_lower_value').html(data[6]);
+                      $('#sixth_card_first_lower_value').html(data[7]);
+                      $('#ninth_card_first_lower_value').html(data[8]);
+                  }
+              });
+          }else{
+              alert("Please Select the date")
+          }
+      })
+  });
+</script>
+</body>
+</html>
